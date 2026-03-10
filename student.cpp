@@ -13,12 +13,13 @@ const int GRADES = 5;
 //function declarations
 void header();
 void menu();
-void addStudent(string id[], string name[],int size);
+void addStudent(int id[], string name[],int size);
 void addGrades(string name[],string subject[],float grades[][GRADES],int row);
-void displayStudents(string id[],string name[], string subject[],int size);
+void displayStudents(int id[],string name[], string subject[],int size);
+void sortByID(int id[]);
 
 int main(){
-    string studentID[STUDENTS];
+    int studentID[STUDENTS];
     string studentName[STUDENTS];
     string subject[SUBJECT] = {"Math","Science","Filipino","History","Programming"};
     float grades[STUDENTS][GRADES];
@@ -74,7 +75,7 @@ void menu(){
     cout << "[9] Exit" << endl;
 }
 
-void addStudent(string id[],string name[], int size){
+void addStudent(int id[],string name[], int size){
     cout << "------------------------------" << endl;
     cout << "Add students ID and Names" << endl;
     for(int i = 0; i < size; i++){
@@ -102,14 +103,14 @@ void addGrades(string name[],string subject[],float grades[][GRADES],int row){
     cout << endl;
 }
 
-void displayStudents(string id[],string name[], string subject[],int size){
+void displayStudents(int id[],string name[], string subject[],int size){
     cout << "------------------------------" << endl;
     cout << "View students masterlist" << endl;
     cout << "\n" << left << setw(8) << "ID" << setw(10) << "Name";
     cout << setw(9) << subject[0] << setw(12) << subject[1] << setw(13) << subject[2] << setw(12) << subject[3] << subject[4];
     cout << endl;
     for(int i = 0; i < size; i++){
-        cout << left << setw(8) << id[i] << name[i] << endl;
+        cout << left << "00" << setw(6) << id[i] << name[i] << endl;
     }
     cout << endl;
 }
